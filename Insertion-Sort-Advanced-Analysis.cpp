@@ -84,11 +84,12 @@ int insertionSort(vector<int> arr) {
 
 }
 
-long int insertionSort(vector<int> arr)
+long int insertionSort2(vector<int> arr)
 {
     g_count = 0;
     
     int index = std::distance(arr.begin(), arr.end());
+    //std::ranges::distance(arr);
     merge_sort(arr, 0, index - 1);
     
     return g_count;
