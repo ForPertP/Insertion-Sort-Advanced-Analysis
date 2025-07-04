@@ -6,14 +6,6 @@ string ltrim(const string &);
 string rtrim(const string &);
 vector<string> split(const string &);
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
-
 /*
  * Complete the 'insertionSort' function below.
  *
@@ -88,6 +80,9 @@ void merge_sort(T& arr, int begin, int end)
     }
 }
  
+int insertionSort(vector<int> arr) {
+
+}
 
 long int insertionSort(vector<int> arr)
 {
