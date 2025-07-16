@@ -10,7 +10,6 @@ import java.util.stream.*;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-
 class Result {
 
     /*
@@ -20,6 +19,23 @@ class Result {
      * The function accepts INTEGER_ARRAY arr as parameter.
      */
 
+ 
+
+    public static void mergeSort(List<Integer> arr, int begin, int end) {
+        if (begin < end) {
+            int mid = begin + (end - begin) / 2;
+            mergeSort(arr, begin, mid);
+            mergeSort(arr, mid + 1, end);
+            merge(arr, begin, mid, end);
+        }
+    }
+
+    public static long insertionSort(List<Integer> arr) {
+        gCount = 0;
+        if (arr == null || arr.isEmpty()) return 0;
+        mergeSort(arr, 0, arr.size() - 1);
+        return gCount;
+    }
 }
 
 
