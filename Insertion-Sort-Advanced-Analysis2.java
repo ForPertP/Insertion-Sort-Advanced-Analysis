@@ -19,7 +19,40 @@ class Result {
      * The function accepts INTEGER_ARRAY arr as parameter.
      */
 
- 
+    private static long gCount = 0;
+
+    public static void merge(List<Integer> arr, int begin, int mid, int end) {
+        int nL = mid - begin + 1;
+        int nR = end - mid;
+
+        List<Integer> L = new ArrayList<>(nL);
+        List<Integer> R = new ArrayList<>(nR);
+
+        for (int i = 0; i < nL; ++i)
+            L.add(arr.get(begin + i));
+
+        for (int j = 0; j < nR; ++j)
+            R.add(arr.get(mid + 1 + j));
+
+        int iL = 0, iR = 0, k = begin;
+
+        while (iL < nL && iR < nR) {
+            if (L.get(iL) <= R.get(iR)) {
+                arr.set(k++, L.get(iL++));
+            } else {
+                arr.set(k++, R.get(iR++));
+                gCount += (nL - iL);
+            }
+        }
+
+        while (iL < nL) {
+            arr.set(k++, L.get(iL++));
+        }
+
+        while (iR < nR) {
+            arr.set(k++, R.get(iR++));
+        }
+    }
 
     public static void mergeSort(List<Integer> arr, int begin, int end) {
         if (begin < end) {
